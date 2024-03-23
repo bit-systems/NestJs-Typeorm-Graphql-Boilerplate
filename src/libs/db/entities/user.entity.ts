@@ -31,7 +31,7 @@ export class UserEntity {
   })
   status: string;
 
-  @Column({ nullable: true })
+  @Column({ nullable: false })
   password: string;
 
   @CreateDateColumn()
