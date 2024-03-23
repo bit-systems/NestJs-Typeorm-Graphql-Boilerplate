@@ -1,0 +1,37 @@
+version: 0.2
+
+env:
+  variables:
+    key: "NODE_ENV"
+    key: "production"
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 20
+  pre_build:
+    commands:
+      - echo installing yarn...
+      - npm install --global yarn
+      - yarn --version
+
+  build:
+    commands:
+      - echo Build started on `date`
+      - yarn install
+      - yarn build
+  post_build:
+    commands:
+      - echo Build completed and moving all to a new folder
+      - echo moving images to definitions file...
+      - cp -R package.json dist/
+      - cp -R Procfile dist/
+      - cp -R node_modules/ dist/node_modules
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: dist
+cache:
+  paths:
+    - './node_modules/**/*'
