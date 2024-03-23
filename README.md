@@ -7,11 +7,9 @@
 
   <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
 
-
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
 
 ## Features
 
@@ -23,17 +21,17 @@
 - [x] Environment variable validation using [zod](https://zod.dev/).
 - [x] Config Service ([@nestjs/config](https://www.npmjs.com/package/@nestjs/config)).
 - [x] Deployment via AWS (build spec included).
-- [] Role Based Access.
-- [] upload Imaged to aws S3.
-- [] Social sign in (Apple, Facebook, Google, Twitter).
+- [ ] Role Based Access.
+- [ ] upload Imaged to aws S3.
+- [ ] Social sign in (Apple, Facebook, Google, Twitter).
 
-- [] Docker.
+- [ ] Docker.
 
-- [] Many more to come...
+- [ ] Many more to come...
 
 ## Requirements
 
-  Please feel free to raise an issue, if you feel something is not right or if you need any feature 
+Please feel free to raise an issue, if you feel something is not right or if you need any feature
 
 ## Installation
 
