@@ -5,8 +5,8 @@ import {
 } from '@src/libs/core/decorators';
 import { UserEntity } from '@src/libs/db/entities';
 
-import { AdminLoginInput } from './dto/admin-login.input';
-import { GqlUser, GqlUserWithToken } from './dto/user.output';
+import { CreateUserInput } from './dto/user.inputs';
+import { GqlUser, GqlUserWithToken } from './dto/user.outputs';
 import { UserService } from './user.service';
 
 @Resolver(() => GqlUser)
@@ -15,7 +15,13 @@ export class UserResolver {
 
   @AllowUnauthorizedRequest()
   @Mutation(() => GqlUserWithToken, { name: 'login' })
-  adminLogin(@Args('adminLogInput') adminLogInput: AdminLoginInput) {
+  login(@Args('adminLogInput') adminLogInput: CreateUserInput) {
+    return this.userService.login(adminLogInput);
+  }
+
+  @AllowUnauthorizedRequest()
+  @Mutation(() => GqlUserWithToken, { name: 'login' })
+  createUser(@Args('adminLogInput') adminLogInput: CreateUserInput) {
     return this.userService.login(adminLogInput);
   }
   @Query(() => GqlUserWithToken, { name: 'profile' })

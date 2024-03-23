@@ -8,7 +8,7 @@ import { PinoLogger } from 'nestjs-pino';
 import { Repository } from 'typeorm';
 
 import { AdminLoginInput } from './dto/admin-login.input';
-import { GqlUserWithToken } from './dto/user.output';
+import { GqlUserWithToken } from './dto/user.outputs';
 
 @Injectable()
 export class UserService {

@@ -1,4 +1,4 @@
-import { DefaultStatus, UserRole } from '@src/libs/core/utils';
+import { UserRoles, UserStatus } from '@src/libs/core/utils';
 import {
   Column,
   CreateDateColumn,
@@ -27,13 +27,13 @@ export class UserEntity {
   @Column({ nullable: true })
   profilePicture: string;
 
-  @Column({ type: 'enum', enum: UserRole })
+  @Column({ type: 'enum', enum: UserRoles })
   role: string;
 
   @Column({
     type: 'enum',
-    enum: DefaultStatus,
-    default: DefaultStatus.IN_ACTIVE,
+    enum: UserStatus,
+    default: UserStatus.ACTIVE,
   })
   status: string;
 

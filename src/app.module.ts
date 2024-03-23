@@ -6,7 +6,7 @@ import { LoggerModule } from 'nestjs-pino';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { AdminModule, SharedModule } from './modules';
+import { UserModule } from './modules';
 
 @Module({
   imports: [
@@ -17,7 +17,7 @@ import { AdminModule, SharedModule } from './modules';
       },
     }),
     DBModule,
-    AdminModule,
+    UserModule,
     LoggerModule.forRoot({
       pinoHttp: {
         autoLogging: false,
@@ -30,7 +30,6 @@ import { AdminModule, SharedModule } from './modules';
         },
       },
     }),
-    SharedModule,
   ],
   controllers: [AppController],
   providers: [AppService],
