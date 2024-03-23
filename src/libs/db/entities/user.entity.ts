@@ -12,22 +12,16 @@ export class UserEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ unique: true, nullable: true })
+  @Column({ unique: true, nullable: false })
   email: string;
-
-  @Column({ nullable: true })
-  countryCode: string;
-
-  @Column({ nullable: true })
-  mobileNumber: string;
 
   @Column()
   fullName: string;
 
-  @Column({ nullable: true })
-  profilePicture: string;
+  @Column()
+  gender: string;
 
-  @Column({ type: 'enum', enum: UserRoles })
+  @Column({ type: 'enum', enum: UserRoles, default: UserRoles.USER })
   role: string;
 
   @Column({

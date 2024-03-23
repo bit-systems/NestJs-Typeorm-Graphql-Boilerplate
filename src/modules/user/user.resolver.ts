@@ -5,7 +5,7 @@ import {
 } from '@src/libs/core/decorators';
 import { UserEntity } from '@src/libs/db/entities';
 
-import { CreateUserInput } from './dto/user.inputs';
+import { CreateUserInput, LoginUserInput } from './dto/user.inputs';
 import { GqlUser, GqlUserWithToken } from './dto/user.outputs';
 import { UserService } from './user.service';
 
@@ -15,14 +15,14 @@ export class UserResolver {
 
   @AllowUnauthorizedRequest()
   @Mutation(() => GqlUserWithToken, { name: 'login' })
-  login(@Args('adminLogInput') adminLogInput: CreateUserInput) {
-    return this.userService.login(adminLogInput);
+  login(@Args('loginUserInput') loginUserInput: LoginUserInput) {
+    return this.userService.login(loginUserInput);
   }
 
   @AllowUnauthorizedRequest()
-  @Mutation(() => GqlUserWithToken, { name: 'login' })
-  createUser(@Args('adminLogInput') adminLogInput: CreateUserInput) {
-    return this.userService.login(adminLogInput);
+  @Mutation(() => GqlUserWithToken)
+  createUser(@Args('createUserInput') createUserInput: CreateUserInput) {
+    return this.userService.createUser(createUserInput);
   }
   @Query(() => GqlUserWithToken, { name: 'profile' })
   async profile(@CurrentUser() user: UserEntity): Promise<GqlUserWithToken> {
