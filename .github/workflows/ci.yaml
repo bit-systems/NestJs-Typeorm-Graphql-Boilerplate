@@ -25,7 +25,7 @@ jobs:
         run: corepack enable
 
       - name: log yarn
-        run: echo "$(yarn cache dir)"
+        run: echo "$(yarn --version)"
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
