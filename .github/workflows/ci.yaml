@@ -20,9 +20,9 @@ jobs:
         with:
           node-version: '20'
           cache: yarn
-        - run: corepack enable
 
-
+      - name: Enable yarn
+        run: corepack enable
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
