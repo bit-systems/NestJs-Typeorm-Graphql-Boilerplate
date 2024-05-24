@@ -17,15 +17,17 @@ export class UserResolver {
   @Mutation(() => GqlUserWithToken, { name: 'login' })
   login(
     @Args('loginUserInput')
-    loginUserInput:
-      LoginUserInput,
+    loginUserInput: LoginUserInput,
   ) {
     return this.userService.login(loginUserInput);
   }
 
   @AllowUnauthorizedRequest()
   @Mutation(() => GqlUserWithToken)
-  createUser(@Args('createUserInput') createUserInput: CreateUserInput) {
+  createUser(
+    @Args('createUserInput')
+    createUserInput: CreateUserInput,
+  ) {
     return this.userService.createUser(createUserInput);
   }
   @Query(() => GqlUserWithToken, { name: 'profile' })
