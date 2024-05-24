@@ -15,8 +15,11 @@ export class UserResolver {
 
   @AllowUnauthorizedRequest()
   @Mutation(() => GqlUserWithToken, { name: 'login' })
-  login(@Args('loginUserInput') 
-  loginUserInput: LoginUserInput) {
+  login(
+    @Args('loginUserInput')
+    loginUserInput:
+      LoginUserInput,
+  ) {
     return this.userService.login(loginUserInput);
   }
 
