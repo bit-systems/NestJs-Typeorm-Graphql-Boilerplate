@@ -25,7 +25,8 @@ export class UserResolver {
 
   @AllowUnauthorizedRequest()
   @Mutation(() => GqlUserWithToken)
-  createUser(@Args('createUserInput') createUserInput: CreateUserInput) {
+  createUser(@Args('createUserInput')
+  createUserInput: CreateUserInput) {
     return this.userService.createUser(createUserInput);
   }
   @Query(() => GqlUserWithToken, { name: 'profile' })
